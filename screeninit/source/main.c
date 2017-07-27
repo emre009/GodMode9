@@ -3,16 +3,11 @@
 // thanks go to AuroraWright
 #include "types.h"
 
-// see: https://github.com/AuroraWright/Luma3DS/blob/53209b9be0c264af00fb81b32146d27f0d9498ac/source/screen.h#L32-L34
-#define PDN_GPU_CNT (*(vu8  *)0x10141200)
-#define ARESCREENSINITIALIZED (PDN_GPU_CNT != 1)
-
 #define BRIGHTNESS 0x39
 
 void main(void)
 {
     vu32 *arm11Entry = (vu32 *)0x1FFFFFFC;
-    if (ARESCREENSINITIALIZED) return; // nothing to do in that case
 
     *(vu32 *)0x10141200 = 0x1007F;
     *(vu32 *)0x10202014 = 0x00000001;
