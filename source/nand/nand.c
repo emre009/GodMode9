@@ -197,6 +197,7 @@ bool InitNandCrypto(void)
             (LoadKeyYFromP9(NULL, slot0x24KeyY_sha256, 0x0E6514, 0x24) != 0))
             LoadKeyFromFile(NULL, 0x24, 'Y', NULL);
     }
+    LoadKeyFromFile(slot0x05KeyY, 0x05, 'Y', NULL); // hacked in
     
     return true;
 }
