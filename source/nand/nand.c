@@ -147,7 +147,7 @@ bool InitNandCrypto(void)
     
     // part #2: TWL KEY
     // see: https://www.3dbrew.org/wiki/Memory_layout#ARM9_ITCM
-    if (IS_A9LH && !IS_SIGHAX) { // only for a9lh
+    if (IS_A9LH) { // only for a9lh
         u8 TwlKeyY[16] __attribute__((aligned(32)));
 
         // k9l already did the part of the init that required the OTP registers
@@ -184,7 +184,7 @@ bool InitNandCrypto(void)
     // part #3: CTRNAND N3DS KEY / AGBSAVE CMAC KEY
     // thanks AuroraWright and Gelex for advice on this
     // see: https://github.com/AuroraWright/Luma3DS/blob/master/source/crypto.c#L347
-    if (IS_A9LH && !IS_SIGHAX) { // only on A9LH, not required on sighax
+    if (IS_A9LH) { // only on A9LH, not required on sighax
         // keyY 0x05 is encrypted @0x0EB014 in the FIRM90
         // keyY 0x05 is encrypted @0x0EB24C in the FIRM81
         if ((LoadKeyYFromP9(slot0x05KeyY, slot0x05KeyY_sha256, 0x0EB014, 0x05) != 0) &&
@@ -197,7 +197,6 @@ bool InitNandCrypto(void)
             (LoadKeyYFromP9(NULL, slot0x24KeyY_sha256, 0x0E6514, 0x24) != 0))
             LoadKeyFromFile(NULL, 0x24, 'Y', NULL);
     }
-    LoadKeyFromFile(slot0x05KeyY, 0x05, 'Y', NULL); // hacked in
     
     return true;
 }
