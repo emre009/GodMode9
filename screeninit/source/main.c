@@ -7,7 +7,7 @@
 #define PDN_GPU_CNT (*(vu8  *)0x10141200)
 #define ARESCREENSINITIALIZED (PDN_GPU_CNT != 1)
 
-#define BRIGHTNESS 0x39
+#define BRIGHTNESS 0xBF
 
 void main(void)
 {
