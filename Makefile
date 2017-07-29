@@ -173,7 +173,7 @@ release:
 	#@[ -d $(RELEASE)/$(TARGET) ] || mkdir -p $(RELEASE)/$(TARGET)
 	@cp $(OUTPUT).bin $(RELEASE)
 	@cp $(OUTPUT).firm $(RELEASE)
-	@cp $(OUTPUT)_dev.firm $(RELEASE)
+	#@cp $(OUTPUT)_dev.firm $(RELEASE)
 	#@-cp $(OUTPUT).dat $(RELEASE)
 	#@-cp $(OUTPUT).nds $(RELEASE)
 	#@-cp $(OUTPUT).3dsx $(RELEASE)/$(TARGET)
